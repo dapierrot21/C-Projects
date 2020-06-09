@@ -1,0 +1,5 @@
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.Models\bin\Debug\FlooringOS.Models.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.Models\bin\Debug\FlooringOS.Models.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.Models\obj\Debug\FlooringOS.Models.csprojAssemblyReference.cache
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.Models\obj\Debug\FlooringOS.Models.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.Models\obj\Debug\FlooringOS.Models.pdb

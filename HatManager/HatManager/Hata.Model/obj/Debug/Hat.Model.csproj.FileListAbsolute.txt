@@ -1,0 +1,4 @@
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hata.Model\bin\Debug\Hata.Model.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hata.Model\bin\Debug\Hata.Model.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hata.Model\obj\Debug\Hata.Model.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hata.Model\obj\Debug\Hata.Model.pdb

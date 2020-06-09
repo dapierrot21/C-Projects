@@ -1,0 +1,77 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "HatManager/1.0.0": {
+        "dependencies": {
+          "Hat.Controller": "1.0.0"
+        },
+        "runtime": {
+          "HatManager.dll": {}
+        }
+      },
+      "Hat.Controller/1.0.0": {
+        "dependencies": {
+          "Hat.Data": "1.0.0",
+          "Hat.Model": "1.0.0",
+          "Hat.Views": "1.0.0"
+        },
+        "runtime": {
+          "Hat.Controller.dll": {}
+        }
+      },
+      "Hat.Data/1.0.0": {
+        "dependencies": {
+          "Hat.Model": "1.0.0"
+        },
+        "runtime": {
+          "Hat.Data.dll": {}
+        }
+      },
+      "Hat.Model/1.0.0": {
+        "runtime": {
+          "Hata.Model.dll": {}
+        }
+      },
+      "Hat.Views/1.0.0": {
+        "dependencies": {
+          "Hat.Model": "1.0.0"
+        },
+        "runtime": {
+          "HatViews.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HatManager/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Hat.Controller/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Hat.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Hat.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Hat.Views/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

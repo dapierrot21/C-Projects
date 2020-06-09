@@ -1,0 +1,14 @@
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.UI.exe.config
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.UI.exe
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.UI.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.BLL.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.Data.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.Models.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.BLL.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.Data.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\FlooringOS.Models.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\obj\Debug\FlooringOS.UI.csprojAssemblyReference.cache
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\obj\Debug\FlooringOS.UI.csproj.CopyComplete
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\obj\Debug\FlooringOS.UI.exe
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\obj\Debug\FlooringOS.UI.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.UI\bin\Debug\Products.txt

@@ -1,0 +1,11 @@
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\bin\Debug\FlooringOS.BLL.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\bin\Debug\FlooringOS.BLL.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\bin\Debug\FlooringOS.Data.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\bin\Debug\FlooringOS.Models.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\bin\Debug\FlooringOS.Data.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\bin\Debug\FlooringOS.Models.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\obj\Debug\FlooringOS.BLL.csprojAssemblyReference.cache
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\obj\Debug\FlooringOS.BLL.csproj.CopyComplete
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\obj\Debug\FlooringOS.BLL.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\obj\Debug\FlooringOS.BLL.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m3-summative\FlooringOS\FlooringOS.BLL\bin\Debug\Products.txt

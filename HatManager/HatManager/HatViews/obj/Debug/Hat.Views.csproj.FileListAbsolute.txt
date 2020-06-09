@@ -1,0 +1,8 @@
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\bin\Debug\HatViews.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\bin\Debug\HatViews.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\bin\Debug\Hata.Model.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\bin\Debug\Hata.Model.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\obj\Debug\Hat.Views.csprojAssemblyReference.cache
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\obj\Debug\Hat.Views.csproj.CopyComplete
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\obj\Debug\HatViews.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\HatViews\obj\Debug\HatViews.pdb

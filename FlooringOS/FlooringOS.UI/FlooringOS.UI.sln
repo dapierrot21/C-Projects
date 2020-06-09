@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlooringOS.UI", "FlooringOS.UI.csproj", "{40DA2491-8BC1-4136-870A-A32711F8D01F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlooringOS.BLL", "..\FlooringOS.BLL\FlooringOS.BLL.csproj", "{C2470E17-EC91-4CE8-B784-7542283DFCC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlooringOS.Models", "..\FlooringOS.Models\FlooringOS.Models.csproj", "{B8292872-E063-4B57-99E9-366F06491A3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlooringOS.Data", "..\FlooringOS.Data\FlooringOS.Data.csproj", "{0D68F6AA-6995-4C03-B46D-6C0A59929122}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlooringOS.Test", "..\FlooringOS.Test\FlooringOS.Test.csproj", "{1704A30A-5334-4269-9F3C-74CFF35E8741}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40DA2491-8BC1-4136-870A-A32711F8D01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40DA2491-8BC1-4136-870A-A32711F8D01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40DA2491-8BC1-4136-870A-A32711F8D01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40DA2491-8BC1-4136-870A-A32711F8D01F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2470E17-EC91-4CE8-B784-7542283DFCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2470E17-EC91-4CE8-B784-7542283DFCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2470E17-EC91-4CE8-B784-7542283DFCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2470E17-EC91-4CE8-B784-7542283DFCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8292872-E063-4B57-99E9-366F06491A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8292872-E063-4B57-99E9-366F06491A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8292872-E063-4B57-99E9-366F06491A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8292872-E063-4B57-99E9-366F06491A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D68F6AA-6995-4C03-B46D-6C0A59929122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D68F6AA-6995-4C03-B46D-6C0A59929122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D68F6AA-6995-4C03-B46D-6C0A59929122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D68F6AA-6995-4C03-B46D-6C0A59929122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1704A30A-5334-4269-9F3C-74CFF35E8741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1704A30A-5334-4269-9F3C-74CFF35E8741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1704A30A-5334-4269-9F3C-74CFF35E8741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1704A30A-5334-4269-9F3C-74CFF35E8741}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F7FC921-9A1A-4936-8CC9-1AB3F74BBCBD}
+	EndGlobalSection
+EndGlobal

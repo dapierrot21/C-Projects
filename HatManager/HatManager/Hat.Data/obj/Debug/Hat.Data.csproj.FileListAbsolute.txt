@@ -1,0 +1,8 @@
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\bin\Debug\Hat.Data.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\bin\Debug\Hat.Data.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\bin\Debug\Hata.Model.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\bin\Debug\Hata.Model.pdb
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\obj\Debug\Hat.Data.csprojAssemblyReference.cache
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\obj\Debug\Hat.Data.csproj.CopyComplete
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\obj\Debug\Hat.Data.dll
+C:\Users\dapie\OneDrive\Projects\repoSG\online-net-dapierrot21\m2-summative\HatManager\HatManager\Hat.Data\obj\Debug\Hat.Data.pdb
