@@ -1,6 +1,10 @@
 USE CarDealership
 GO
 
+IF EXISTS(SELECT * FROM sys.tables WHERE name='Role')
+DROP TABLE [Role]
+GO
+
 IF EXISTS(SELECT * FROM sys.tables WHERE name='InventoryReport')
 DROP TABLE InventoryReport
 GO
@@ -41,6 +45,10 @@ IF EXISTS(SELECT * FROM sys.tables WHERE name='Transmission')
 DROP TABLE Transmission
 GO
 
+IF EXISTS(SELECT * FROM sys.tables WHERE name='MakeModel')
+DROP TABLE MakeModel
+GO
+
 IF EXISTS(SELECT * FROM sys.tables WHERE name='Model')
 DROP TABLE Model
 GO
@@ -71,7 +79,7 @@ GO
 
 CREATE TABLE PurchaseType(
 	PurchaseTypeId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	PurchaseType varchar(30) NOT NULL
+	PurchaseTypeInfo varchar(30) NOT NULL
 )
 GO
 
@@ -91,10 +99,16 @@ GO
 CREATE TABLE Model(
 	ModelId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ModelType varchar(10) NOT NULL,
-	MakedId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
 	CreatedDate datetime2 not null default(getdate())
 )
 GO
+
+CREATE TABLE MakeModel(
+	MakeId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
+	ModelId int NOT NULL FOREIGN KEY REFERENCES Model(ModelId)
+)
+GO
+
 
 CREATE TABLE Transmission(
 	TransmissionId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -123,7 +137,7 @@ GO
 CREATE TABLE Car(
 	CarId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	UserID nvarchar(128) NOT NULL,
-	MakedId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
+	MakeId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
 	ModelId int NOT NULL FOREIGN KEY REFERENCES Model(ModelId),
 	TypeId int NOT NULL FOREIGN KEY REFERENCES CarNewOrUsedType(TypeId),
 	BodyStyleId int NOT NULL FOREIGN KEY REFERENCES BodyStyle(BodyStyleId),
@@ -157,8 +171,8 @@ CREATE TABLE Contact(
 GO
 
 CREATE TABLE SalesInfo(
-	UserId nvarchar(128) NOT NULL,
 	SalesInfoId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	UserId nvarchar(128) NOT NULL,
 	[Name] varchar(50) NOT NULL,
 	Email varchar(320) NOT NULL,
 	Street1 varchar(25) NOT NULL,
@@ -182,11 +196,19 @@ GO
 CREATE TABLE InventoryReport(
 	InventoryReportId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Year] int NOT NULL,
-	MakedId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
+	MakeId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
 	ModelId int NOT NULL FOREIGN KEY REFERENCES Model(ModelId),
 	[Count] int NOT NULL,
 	StockValue int NOT NULL,
 	isSold bit NOT NULL
 )
 GO
+
+CREATE TABLE [Role](
+	RoleId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	RoleTitle varchar(30) NOT NULL
+)
+GO
+
+
 

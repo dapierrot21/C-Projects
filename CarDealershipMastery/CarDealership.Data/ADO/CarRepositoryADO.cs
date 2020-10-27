@@ -23,6 +23,7 @@ namespace CarDealership.Data.ADO
                     CommandType = CommandType.StoredProcedure
                 };
 
+                cn.Open();
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())

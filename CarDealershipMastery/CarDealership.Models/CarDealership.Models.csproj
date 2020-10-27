@@ -50,19 +50,21 @@
     <Compile Include="Queries\UserReport.cs" />
     <Compile Include="Tables\BodyStyle.cs" />
     <Compile Include="Tables\Car.cs" />
+    <Compile Include="Tables\CarNewOrUsedType.cs" />
     <Compile Include="Tables\CarType.cs" />
     <Compile Include="Tables\Color.cs" />
     <Compile Include="Tables\Contact.cs" />
     <Compile Include="Tables\Interior.cs" />
     <Compile Include="Tables\InventoryReport.cs" />
     <Compile Include="Tables\Make.cs" />
+    <Compile Include="Tables\MakeModel.cs" />
     <Compile Include="Tables\Model.cs" />
     <Compile Include="Tables\PurchaseType.cs" />
+    <Compile Include="Tables\Role.cs" />
     <Compile Include="Tables\SalesInfo.cs" />
     <Compile Include="Tables\Specials.cs" />
     <Compile Include="Tables\State.cs" />
     <Compile Include="Tables\Transmission.cs" />
-    <Compile Include="Tables\Type.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

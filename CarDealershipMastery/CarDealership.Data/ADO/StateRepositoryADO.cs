@@ -23,13 +23,16 @@ namespace CarDealership.Data.ADO
                     CommandType = CommandType.StoredProcedure
                 };
 
+                cn.Open();
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
                     while(dr.Read())
                     {
-                        State currentRow = new State();
-                        currentRow.StateId = (int)dr["StateId"];
-                        currentRow.StateName = dr["StateName"].ToString();
+                        State currentRow = new State
+                        {
+                            StateId = (int)dr["StateId"],
+                            StateName = dr["StateName"].ToString()
+                        };
 
                         states.Add(currentRow);
                     }

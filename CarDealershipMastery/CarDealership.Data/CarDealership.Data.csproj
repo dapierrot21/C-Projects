@@ -43,35 +43,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADO\BodyStyleRepositoryADO.cs" />
+    <Compile Include="ADO\CarNewOrUsedTypeRepositoryADO.cs" />
     <Compile Include="ADO\CarRepositoryADO.cs" />
     <Compile Include="ADO\CarTypeRepositoryADO.cs" />
     <Compile Include="ADO\ColorRepositoryADO.cs" />
     <Compile Include="ADO\ContactRepositoryADO.cs" />
     <Compile Include="ADO\InteriorRepositoryADO.cs" />
     <Compile Include="ADO\InventoryReportRepositoryADO.cs" />
+    <Compile Include="ADO\MakeModelRepositoryADO.cs" />
     <Compile Include="ADO\MakeRepositoryADO.cs" />
     <Compile Include="ADO\ModelRepositoryADO.cs" />
     <Compile Include="ADO\PurchaseTypeRepositoryADO.cs" />
+    <Compile Include="ADO\RoleRepositoryADO.cs" />
     <Compile Include="ADO\SalesInfoRepositoryADO.cs" />
     <Compile Include="ADO\SpecialsRepositoryADO.cs" />
     <Compile Include="ADO\StateRepositoryADO.cs" />
     <Compile Include="ADO\TransmissionRepositoryADO.cs" />
-    <Compile Include="ADO\TypeRepositoryADO.cs" />
     <Compile Include="Interfaces\IBodyStyleRepository.cs" />
+    <Compile Include="Interfaces\ICarNewOrUsedTypeRepository.cs" />
     <Compile Include="Interfaces\ICarRepository.cs" />
     <Compile Include="Interfaces\ICarTypeRepository.cs" />
     <Compile Include="Interfaces\IColorRepository.cs" />
     <Compile Include="Interfaces\IContactRepository.cs" />
     <Compile Include="Interfaces\IInteriorRepository.cs" />
     <Compile Include="Interfaces\IInventoryReportRepository.cs" />
+    <Compile Include="Interfaces\IMakeModelRepository.cs" />
     <Compile Include="Interfaces\IMakeRepository.cs" />
     <Compile Include="Interfaces\IModelRepository.cs" />
     <Compile Include="Interfaces\IPurchaseTypeRepository.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\ISalesInfoRepository.cs" />
     <Compile Include="Interfaces\ISpecialsRepositroy.cs" />
     <Compile Include="Interfaces\IStateRepository.cs" />
     <Compile Include="Interfaces\ITransmissionRepository.cs" />
-    <Compile Include="Interfaces\ITypeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>

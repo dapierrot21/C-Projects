@@ -14,29 +14,32 @@ namespace CarDealership.Data.ADO
     {
         public List<CarNewOrUsedType> GetAll()
         {
-            List<CarNewOrUsedType> type = new List<CarNewOrUsedType>();
+            List<CarNewOrUsedType> newOrUsedTypes = new List<CarNewOrUsedType>();
 
             using (var cn = new SqlConnection(Settings.GetConnectionString()))
             {
-                SqlCommand cmd = new SqlCommand("SelectAllType", cn)
+                SqlCommand cmd = new SqlCommand("SelectAllNewOrUsed", cn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
+                cn.Open();
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        CarNewOrUsedType currentRow = new CarNewOrUsedType();
-                        currentRow.TypeId = (int)dr["TypeId"];
-                        currentRow.TypeName = dr["TypeName"].ToString();
+                        CarNewOrUsedType currentRow = new CarNewOrUsedType
+                        {
+                            TypeId = (int)dr["TypeId"],
+                            TypeName = dr["TypeName"].ToString()
+                        };
 
-                        type.Add(currentRow);
+                        newOrUsedTypes.Add(currentRow);
                     }
                 }
             }
 
-            return type;
+            return newOrUsedTypes;
         }
     }
 }
