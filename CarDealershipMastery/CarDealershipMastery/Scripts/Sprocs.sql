@@ -61,14 +61,17 @@ GO
 
 -- Contact Procedures --
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'SelectAllContacts')
-		DROP PROCEDURE SelectAllContacts
+	WHERE ROUTINE_NAME = 'ContactSelect')
+		DROP PROCEDURE ContactSelect
 GO
 
-CREATE PROCEDURE SelectAllContacts AS
+CREATE PROCEDURE ContactSelect(
+	@ContactId int
+)AS
 BEGIN
 	SELECT ContactId, [Name], Email, Phone, [Message]
 	FROM Contact
+	WHERE ContactId = @ContactId
 END
 
 GO
@@ -87,8 +90,8 @@ CREATE PROCEDURE ContactInsert (
 	@Message varchar(250)
 ) AS
 BEGIN
-	INSERT INTO Contact(ContactId, [Name], Email, Phone, [Message])
-	VALUES (@ContactId, @Name, @Email, @Phone, @Message);
+	INSERT INTO Contact([Name], Email, Phone, [Message])
+	VALUES (@Name, @Email, @Phone, @Message);
 
 	-- Returns the last id identity that was created --
 	SET @ContactId = SCOPE_IDENTITY();
@@ -155,16 +158,76 @@ GO
 
 -- Make Procedures --
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'SelectAllMakes')
-		DROP PROCEDURE SelectAllMakes
+	WHERE ROUTINE_NAME = 'MakeSelect')
+		DROP PROCEDURE MakeSelect
 GO
 
-CREATE PROCEDURE SelectAllMakes AS
+CREATE PROCEDURE MakeSelect (
+	@MakeId int
+)AS
 BEGIN
-	SELECT MakeId, MakeType, CreatedDate
+	SELECT MakeId, UserId, MakeType, CreatedDate
 	FROM Make
+	WHERE MakeId = @MakeId
 END
 
+GO
+
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'MakeInsert')
+		DROP PROCEDURE MakeInsert
+GO
+
+CREATE PROCEDURE MakeInsert (
+	@MakeId int output,
+	@UserId nvarchar(128),
+	@MakeType varchar(10)
+) AS
+BEGIN
+	INSERT INTO Make(UserId, MakeType)
+	VALUES (@UserId, @MakeType);
+
+	-- Returns the last id identity that was created --
+	SET @MakeId = SCOPE_IDENTITY();
+END
+GO
+
+
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'MakeUpdate')
+		DROP PROCEDURE MakeUpdate
+GO
+
+CREATE PROCEDURE MakeUpdate (
+	@MakeId int,
+	@UserId nvarchar(128),
+	@MakeType varchar(10)
+) AS
+BEGIN
+	UPDATE Make SET
+		UserId = @UserId,
+		MakeType = @MakeType
+
+	WHERE MakeId = @MakeId
+
+END
+GO
+
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'MakeDelete')
+		DROP PROCEDURE MakeDelete
+GO
+
+CREATE PROCEDURE MakeDelete (
+	@MakeId int
+) AS
+BEGIN
+	BEGIN TRANSACTION
+
+	DELETE FROM Make WHERE @MakeId = MakeId;
+
+	COMMIT TRANSACTION
+END
 GO
 
 -- MakeModel Prodcedures --
@@ -183,14 +246,17 @@ GO
 
 -- Model Procedures --
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'SelectAllModels')
-		DROP PROCEDURE SelectAllModels
+	WHERE ROUTINE_NAME = 'ModelsSelect')
+		DROP PROCEDURE ModelsSelect
 GO
 
-CREATE PROCEDURE SelectAllModels AS
+CREATE PROCEDURE ModelsSelect(
+	@ModelId int
+)AS
 BEGIN
-	SELECT ModelId, ModelType, CreatedDate
+	SELECT ModelId, UserId, ModelType, CreatedDate
 	FROM Model
+	WHERE ModelId = @ModelId
 END
 
 GO
@@ -203,11 +269,12 @@ GO
 
 CREATE PROCEDURE ModelInsert (
 	@ModelId int output,
-	@ModelType varchar(10)
+	@UserId nvarchar(128),
+	@ModelType varchar(50)
 ) AS
 BEGIN
-	INSERT INTO Model(ModelType)
-	VALUES (@ModelType);
+	INSERT INTO Model(UserId, ModelType)
+	VALUES (@UserId, @ModelType);
 
 	-- Returns the last id identity that was created --
 	SET @ModelId = SCOPE_IDENTITY();
@@ -222,10 +289,12 @@ GO
 
 CREATE PROCEDURE ModelUpdate (
 	@ModelId int,
-	@ModelType varchar(10)
+	@UserId nvarchar(128),
+	@ModelType varchar(50)
 ) AS
 BEGIN
 	UPDATE Model SET
+		UserId = @UserId,
 		ModelType = @ModelType
 
 	WHERE ModelId = @ModelId
@@ -251,60 +320,6 @@ END
 GO
 
 
-IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'MakeInsert')
-		DROP PROCEDURE MakeInsert
-GO
-
-CREATE PROCEDURE MakeInsert (
-	@MakeId int output,
-	@MakeType varchar(10)
-) AS
-BEGIN
-	INSERT INTO Make(MakeType)
-	VALUES (@MakeType);
-
-	-- Returns the last id identity that was created --
-	SET @MakeId = SCOPE_IDENTITY();
-END
-GO
-
-
-IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'MakeUpdate')
-		DROP PROCEDURE MakeUpdate
-GO
-
-CREATE PROCEDURE MakeUpdate (
-	@MakeId int,
-	@MakeType varchar(10)
-) AS
-BEGIN
-	UPDATE Make SET
-		MakeType = @MakeType
-
-	WHERE MakeId = @MakeId
-
-END
-GO
-
-IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'MakeDelete')
-		DROP PROCEDURE MakeDelete
-GO
-
-CREATE PROCEDURE MakeDelete (
-	@MakeId int
-) AS
-BEGIN
-	BEGIN TRANSACTION
-
-	DELETE FROM Make WHERE @MakeId = MakeId;
-
-	COMMIT TRANSACTION
-END
-GO
-
 -- PurchaseType Procedures --
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'SelectAllPurchaseTypes')
@@ -321,14 +336,17 @@ GO
 
 -- Specials Procedures --
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'SelectAllSpecials')
-		DROP PROCEDURE SelectAllSpecials
+	WHERE ROUTINE_NAME = 'SpecialsSelect')
+		DROP PROCEDURE SpecialsSelect
 GO
 
-CREATE PROCEDURE SelectAllSpecials AS
+CREATE PROCEDURE SpecialsSelect (
+	@SpecialsId int
+)AS
 BEGIN
 	SELECT SpecialsId, Title, [Description]
 	FROM Specials
+	WHERE SpecialsId = @SpecialsId
 END
 
 GO
@@ -342,7 +360,7 @@ CREATE PROCEDURE SpecialsInsert (
 	@SpecialsId int output,
 	@Title varchar(150),
 	@Description varchar(320)
-) AS
+)AS
 BEGIN
 	INSERT INTO Specials(Title, [Description])
 	VALUES (@Title, @Description);
@@ -405,17 +423,33 @@ END
 
 GO
 
--- Car Procedures --
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'SelectAllCars')
-		DROP PROCEDURE SelectAllCars
+	WHERE ROUTINE_NAME = 'SpecialsSelectRecent')
+		DROP PROCEDURE SpecialsSelectRecent
 GO
 
-CREATE PROCEDURE SelectAllCars AS
+CREATE PROCEDURE SpecialsSelectRecent AS
+BEGIN
+	SELECT SpecialsId, Title, [Description]
+	FROM Specials
+	ORDER BY CreatedDate
+END
+GO
+
+-- Car Procedures --
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'CarSelect')
+		DROP PROCEDURE CarSelect
+GO
+
+CREATE PROCEDURE CarSelect(
+	@CarId int
+)AS
 BEGIN
 	SELECT CarId, UserID, MakeId, ModelId, TypeId, BodyStyleId, TransmissionId, ColorId, InteriorId, [Year], Milage,
 	VIN, MSRP, SalePrice, [Description], UploadedPicture, IsFeatured
 	FROM Car
+	WHERE CarId = @CarId
 END
 
 GO
@@ -521,16 +555,56 @@ BEGIN
 END
 GO
 
--- SalesInfo Procedures --
 IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'SelectAllSalesInfo')
-		DROP PROCEDURE SelectAllSalesInfo
+	WHERE ROUTINE_NAME = 'CarSelectRecent')
+		DROP PROCEDURE CarSelectRecent
 GO
 
-CREATE PROCEDURE SelectAllSalesInfo AS
+CREATE PROCEDURE CarSelectRecent AS
 BEGIN
-	SELECT UserId, SalesInfoId, [Name], Email, Street1, Street2, City, StateId, ZipCode, PurchasePrice, PurchaseTypeId
+	SELECT TOP 8 CarId, UserId, [Year], MakeId, ModelId, SalePrice, UploadedPicture
+	FROM Car
+	WHERE IsFeatured = 1
+	ORDER BY [Year] ASC
+END
+GO
+
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'CarSelectDetails')
+		DROP PROCEDURE CarSelectDetails
+GO
+
+CREATE PROCEDURE CarSelectDetails (
+	@CarId int
+)AS
+BEGIN
+	SELECT CarId, c.UserId, [Year], c.MakeId, c.ModelId, c.BodyStyleId, c.TransmissionId, c.ColorId, c.InteriorId, Milage, 
+	VIN, SalePrice, MSRP, [Description], UploadedPicture
+	FROM Car c
+		INNER JOIN Make ma ON c.MakeId = ma.MakeId
+		INNER JOIN Model mo ON c.ModelId = mo.ModelId
+		INNER JOIN BodyStyle bs ON c.BodyStyleId = bs.BodyStyleId
+		INNER JOIN Transmission t ON c.TransmissionId = t.TransmissionId
+		INNER JOIN Color co ON c.ColorId = co.ColorId
+		INNER JOIN Interior i ON c.InteriorId = i.InteriorId
+	WHERE CarId = @CarId
+END
+
+GO
+
+-- SalesInfo Procedures --
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'SalesInfoSelect')
+		DROP PROCEDURE SalesInfoSelect
+GO
+
+CREATE PROCEDURE SalesInfoSelect(
+	@SalesInfoId int
+)AS
+BEGIN
+	SELECT UserId, CarId, SalesInfoId, [Name], Email, Street1, Street2, City, StateId, ZipCode, PurchasePrice, PurchaseTypeId
 	FROM SalesInfo
+	WHERE SalesInfoId = @SalesInfoId
 END
 
 GO
@@ -542,6 +616,7 @@ GO
 
 CREATE PROCEDURE SalesInfoInsert (
 	@SalesInfoId int output,
+	@CarId int,
 	@UserId nvarchar(128),
 	@Name varchar(50),
 	@Email varchar(320),
@@ -552,11 +627,11 @@ CREATE PROCEDURE SalesInfoInsert (
 	@ZipCode int,
 	@PurchasePrice decimal(18,0),
 	@PurchaseTypeId int
-) AS
+)AS
 BEGIN
-	INSERT INTO SalesInfo(UserId, [Name], Email, Street1, Street2, City, StateId, ZipCode, PurchasePrice,
+	INSERT INTO SalesInfo(UserId, CarId, [Name], Email, Street1, Street2, City, StateId, ZipCode, PurchasePrice,
 	PurchaseTypeId)
-	VALUES (@UserId, @Name, @Email, @Street1, @Street2, @City, @StateId, @ZipCode, @PurchasePrice, @PurchaseTypeId);
+	VALUES (@UserId, @CarId, @Name, @Email, @Street1, @Street2, @City, @StateId, @ZipCode, @PurchasePrice, @PurchaseTypeId);
 
 	-- Returns the last id identity that was created --
 	SET @SalesInfoId = SCOPE_IDENTITY();
@@ -572,6 +647,7 @@ GO
 CREATE PROCEDURE SalesInfoUpdate (
 	@SalesInfoId int,
 	@UserId nvarchar(128),
+	@CarId int,
 	@Name varchar(50),
 	@Email varchar(320),
 	@Street1 varchar(25),
@@ -584,7 +660,8 @@ CREATE PROCEDURE SalesInfoUpdate (
 ) AS
 BEGIN
 	UPDATE SalesInfo SET
-		UserId = @UserId, 
+		UserId = @UserId,
+		CarId = @CarId,
 		[Name] = @Name, 
 		Email = @Email, 
 		Street1 = @Street1, 
@@ -631,7 +708,3 @@ BEGIN
 END
 
 GO
-
-
-
-
