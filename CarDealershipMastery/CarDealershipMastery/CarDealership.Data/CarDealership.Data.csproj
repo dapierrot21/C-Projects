@@ -49,6 +49,7 @@
     <Compile Include="ADO\ColorRepositoryADO.cs" />
     <Compile Include="ADO\ContactRepositoryADO.cs" />
     <Compile Include="ADO\InteriorRepositoryADO.cs" />
+    <Compile Include="ADO\LookUpRepositoryADO.cs" />
     <Compile Include="ADO\MakeModelRepositoryADO.cs" />
     <Compile Include="ADO\MakeRepositoryADO.cs" />
     <Compile Include="ADO\ModelRepositoryADO.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Interfaces\IColorRepository.cs" />
     <Compile Include="Interfaces\IContactRepository.cs" />
     <Compile Include="Interfaces\IInteriorRepository.cs" />
+    <Compile Include="Interfaces\ILookUpRepository.cs" />
     <Compile Include="Interfaces\IMakeModelRepository.cs" />
     <Compile Include="Interfaces\IMakeRepository.cs" />
     <Compile Include="Interfaces\IModelRepository.cs" />

@@ -26,10 +26,6 @@ IF EXISTS(SELECT * FROM sys.tables WHERE name='State')
 DROP TABLE [State]
 GO
 
-IF EXISTS(SELECT * FROM sys.tables WHERE name='MakeModel')
-DROP TABLE MakeModel
-GO
-
 IF EXISTS(SELECT * FROM sys.table_types WHERE name='Interior')
 DROP TABLE Interior
 GO
@@ -54,32 +50,29 @@ IF EXISTS(SELECT * FROM sys.tables WHERE name='BodyStyle')
 DROP TABLE BodyStyle
 GO
 
-IF EXISTS(SELECT * FROM sys.tables WHERE name='Model')
-DROP TABLE Model
+IF EXISTS(SELECT * FROM sys.tables WHERE name='MakeModel')
+DROP TABLE MakeModel
 GO
 
 IF EXISTS(SELECT * FROM sys.tables WHERE name='Make')
 DROP TABLE Make
 GO
 
-
-
-
-
-
-CREATE TABLE Make(
-	MakeId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	MakeType varchar(10) NOT NULL,
-	CreatedDate datetime2 not null default(getdate())
-)
+IF EXISTS(SELECT * FROM sys.tables WHERE name='Model')
+DROP TABLE Model
 GO
 
-CREATE TABLE Model(
-	ModelId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	ModelType varchar(10) NOT NULL,
-	CreatedDate datetime2 not null default(getdate())
-)
-GO
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE TABLE CarNewOrUsedType(
 	TypeId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -111,6 +104,28 @@ CREATE TABLE Interior(
 )
 GO
 
+CREATE TABLE Make(
+	MakeId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	UserId nvarchar(128) NOT NULL,
+	MakeType varchar(10) NOT NULL,
+	CreatedDate datetime2 not null default(getdate())
+)
+GO
+
+CREATE TABLE Model(
+	ModelId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	UserId nvarchar(128) NOT NULL,
+	ModelType varchar(50) NOT NULL,
+	CreatedDate datetime2 not null default(getdate())
+)
+GO
+
+CREATE TABLE MakeModel(
+	MakeId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
+	ModelId int NOT NULL FOREIGN KEY REFERENCES Model(ModelId)
+)
+GO
+
 
 CREATE TABLE Car(
 	CarId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -125,19 +140,14 @@ CREATE TABLE Car(
 	[Year] varchar(4) NOT NULL,
 	Milage varchar(30) NOT NULL,
 	VIN varchar(17) NOT NULL,
-	MSRP int NOT NULL,
+	MSRP decimal NOT NULL,
 	SalePrice decimal NOT NULL,
-	[Description] varchar(80) NOT NULL,
+	[Description] varchar(180) NOT NULL,
 	UploadedPicture varchar(50),
 	IsFeatured bit NOT NULL
 )
 GO
 
-CREATE TABLE MakeModel(
-	MakeId int NOT NULL FOREIGN KEY REFERENCES Make(MakeId),
-	ModelId int NOT NULL FOREIGN KEY REFERENCES Model(ModelId)
-)
-GO
 
 CREATE TABLE [State](
 	StateId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -155,6 +165,7 @@ GO
 CREATE TABLE SalesInfo(
 	SalesInfoId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	UserId nvarchar(128) NOT NULL,
+	CarId int NOT NULL,
 	[Name] varchar(50) NOT NULL,
 	Email varchar(320) NOT NULL,
 	Street1 varchar(25) NOT NULL,
@@ -179,7 +190,8 @@ GO
 CREATE TABLE Specials(
 	SpecialsId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Title varchar(150) NOT NULL,
-	[Description] varchar(250) NOT NULL
+	[Description] varchar(250) NOT NULL,
+	CreatedDate datetime2 not null default(getdate())
 )
 GO
 

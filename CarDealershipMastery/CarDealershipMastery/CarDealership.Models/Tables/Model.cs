@@ -9,8 +9,8 @@ namespace CarDealership.Models.Tables
 {
     public class Model
     {
+        public string UserId { get; set; }
         public int ModelId { get; set; }
         public string ModelType { get; set; }
-        public int MakeId { get; set; }
     }
 }

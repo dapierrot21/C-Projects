@@ -9,6 +9,10 @@ namespace CarDealership.Data.Interfaces
 {
     public interface ISpecialsRepositroy
     {
-        List<Specials> GetAll();
+        Specials GetById(int specialsId);
+        void Insert(Specials specials);
+        void Update(Specials specials);
+        void Delete(int specialsId);
+        IEnumerable<Specials> GetSpecials();
     }
 }

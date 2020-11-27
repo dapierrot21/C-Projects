@@ -9,6 +9,9 @@ namespace CarDealership.Data.Interfaces
 {
     public interface ISalesInfoRepository
     {
-        List<SalesInfo> GetAll();
+        SalesInfo GetById(int salesInfoId);
+        void Insert(SalesInfo salesInfo);
+        void Update(SalesInfo salesInfo);
+        void Delete(int salesInfoId);
     }
 }

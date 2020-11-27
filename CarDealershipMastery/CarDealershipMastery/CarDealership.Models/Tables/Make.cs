@@ -8,6 +8,7 @@ namespace CarDealership.Models.Tables
 {
     public class Make
     {
+        public string UserId { get; set; }
         public int MakeId { get; set; }
         public string MakeType { get; set; }
     }
