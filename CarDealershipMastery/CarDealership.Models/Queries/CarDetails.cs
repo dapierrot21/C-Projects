@@ -16,7 +16,7 @@ namespace CarDealership.Models.Queries
         public int ModelId { get; set; }
         public string ModelType { get; set; }
         public int BodyStyleId { get; set; }
-        public string BodyStyleType { get; set; }
+        public string Style { get; set; }
         public int TransmissionId { get; set; }
         public string TransmissionType { get; set; }
         public int ColorId { get; set; }
@@ -29,5 +29,6 @@ namespace CarDealership.Models.Queries
         public decimal MSRP { get; set; }
         public string Description { get; set; }
         public string UploadedPicture { get; set; }
+        public bool IsFeatured { get; set; }
     }
 }

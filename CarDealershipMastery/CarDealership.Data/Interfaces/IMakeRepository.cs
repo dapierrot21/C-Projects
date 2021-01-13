@@ -9,6 +9,9 @@ namespace CarDealership.Data.Interfaces
 {
     public interface IMakeRepository
     {
-        List<Make> GetAll();
+        Make GetById(int makeId);
+        void Insert(Make make);
+        void Update(Make make);
+        void Delete(int MakeId);
     }
 }

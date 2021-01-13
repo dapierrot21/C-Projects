@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADO\AccountRepsitoryADO.cs" />
     <Compile Include="ADO\BodyStyleRepositoryADO.cs" />
     <Compile Include="ADO\CarNewOrUsedTypeRepositoryADO.cs" />
     <Compile Include="ADO\CarRepositoryADO.cs" />
@@ -49,7 +50,7 @@
     <Compile Include="ADO\ColorRepositoryADO.cs" />
     <Compile Include="ADO\ContactRepositoryADO.cs" />
     <Compile Include="ADO\InteriorRepositoryADO.cs" />
-    <Compile Include="ADO\InventoryReportRepositoryADO.cs" />
+    <Compile Include="ADO\LookUpRepositoryADO.cs" />
     <Compile Include="ADO\MakeModelRepositoryADO.cs" />
     <Compile Include="ADO\MakeRepositoryADO.cs" />
     <Compile Include="ADO\ModelRepositoryADO.cs" />
@@ -59,6 +60,9 @@
     <Compile Include="ADO\SpecialsRepositoryADO.cs" />
     <Compile Include="ADO\StateRepositoryADO.cs" />
     <Compile Include="ADO\TransmissionRepositoryADO.cs" />
+    <Compile Include="Factories\CarRepositoryFactory.cs" />
+    <Compile Include="Factories\ContactRepositoryFactory.cs" />
+    <Compile Include="Interfaces\IAccountRepository.cs" />
     <Compile Include="Interfaces\IBodyStyleRepository.cs" />
     <Compile Include="Interfaces\ICarNewOrUsedTypeRepository.cs" />
     <Compile Include="Interfaces\ICarRepository.cs" />
@@ -66,7 +70,7 @@
     <Compile Include="Interfaces\IColorRepository.cs" />
     <Compile Include="Interfaces\IContactRepository.cs" />
     <Compile Include="Interfaces\IInteriorRepository.cs" />
-    <Compile Include="Interfaces\IInventoryReportRepository.cs" />
+    <Compile Include="Interfaces\ILookUpRepository.cs" />
     <Compile Include="Interfaces\IMakeModelRepository.cs" />
     <Compile Include="Interfaces\IMakeRepository.cs" />
     <Compile Include="Interfaces\IModelRepository.cs" />

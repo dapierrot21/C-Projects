@@ -9,6 +9,9 @@ namespace CarDealership.Data.Interfaces
 {
     public interface IContactRepository
     {
-        List<Contact> GetAll();
+        Contact GetById(int contactId);
+        void Insert(Contact contact);
+        void Update(Contact contact);
+        void Delete(int contactId);
     }
 }

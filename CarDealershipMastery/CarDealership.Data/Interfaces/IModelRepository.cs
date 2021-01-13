@@ -9,6 +9,9 @@ namespace CarDealership.Data.Interfaces
 {
     public interface IModelRepository
     {
-        List<Model> GetAll();
+        Model GetById(int modelId);
+        void Insert(Model model);
+        void Update(Model model);
+        void Delete(int modelId);
     }
 }

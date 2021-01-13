@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CarDealership.Data.ADO;
+using CarDealership.Data.Factories;
+using CarDealership.Models.Tables;
 
 namespace CarDealership.Controllers
 {
@@ -10,7 +13,8 @@ namespace CarDealership.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = CarRepositoryFactory.GetRepository().GetRecent();
+            return View(model);
         }
 
         public ActionResult About()
@@ -20,11 +24,14 @@ namespace CarDealership.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(string vin)
         {
-            ViewBag.Message = "Your contact page.";
+            var model = new Contact();
+
+            ViewBag.Message = vin;
 
             return View();
         }
+
     }
 }

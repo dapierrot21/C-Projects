@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\CarDetails.cs" />
     <Compile Include="Queries\CarItem.cs" />
     <Compile Include="Queries\InvertoryReportLookUp.cs" />
     <Compile Include="Queries\MakeInfo.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Tables\Color.cs" />
     <Compile Include="Tables\Contact.cs" />
     <Compile Include="Tables\Interior.cs" />
-    <Compile Include="Tables\InventoryReport.cs" />
     <Compile Include="Tables\Make.cs" />
     <Compile Include="Tables\MakeModel.cs" />
     <Compile Include="Tables\Model.cs" />
