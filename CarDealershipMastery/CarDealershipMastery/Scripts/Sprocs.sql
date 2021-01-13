@@ -562,9 +562,10 @@ GO
 
 CREATE PROCEDURE CarSelectRecent AS
 BEGIN
-	SELECT TOP 8 CarId, UserId, [Year], MakeId, ModelId, SalePrice, UploadedPicture
-	FROM Car
-	WHERE IsFeatured = 1
+	SELECT TOP 8 c.CarId, c.UserId, c.[Year], c.MakeId, ma.MakeType, c.ModelId,mo.ModelType, c.SalePrice, c.UploadedPicture
+	FROM Car c
+		INNER JOIN Make ma ON c.MakeId = ma.MakeId
+		INNER JOIN Model mo ON c.ModelId = mo.ModelId
 	ORDER BY [Year] ASC
 END
 GO
@@ -578,8 +579,8 @@ CREATE PROCEDURE CarSelectDetails (
 	@CarId int
 )AS
 BEGIN
-	SELECT CarId, c.UserId, [Year], c.MakeId, c.ModelId, c.BodyStyleId, c.TransmissionId, c.ColorId, c.InteriorId, Milage, 
-	VIN, SalePrice, MSRP, [Description], UploadedPicture
+	SELECT CarId, c.UserId, [Year], c.MakeId, MakeType, c.ModelId, ModelType, c.BodyStyleId, Style, c.TransmissionId, TransmissionType, c.ColorId, ColorName, c.InteriorId, InteriorColor, Milage, 
+	VIN, SalePrice, MSRP, [Description], UploadedPicture, c.IsFeatured
 	FROM Car c
 		INNER JOIN Make ma ON c.MakeId = ma.MakeId
 		INNER JOIN Model mo ON c.ModelId = mo.ModelId
@@ -705,6 +706,26 @@ CREATE PROCEDURE SelectAllRoles AS
 BEGIN
 	SELECT RoleId, RoleTitle
 	FROM [Role]
+END
+
+GO
+
+
+-- User Report Procedure --
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'SelectAllUsers')
+		DROP PROCEDURE SelectAllUsers
+GO
+
+CREATE PROCEDURE SelectAllUsers (
+	@UserId nvarchar(128)
+) AS
+BEGIN
+	SELECT u.Id, u.UserName, u.Email, r.RoleTitle
+	FROM AspNetUsers u 
+		INNER JOIN [Role] r on u.RoleId = r.RoleId
+		INNER JOIN AspNetUsers ua on ua.Id = r.UserId
+	WHERE u.Id = @UserId;
 END
 
 GO

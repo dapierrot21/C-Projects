@@ -23,7 +23,7 @@ BEGIN
 	DELETE FROM Specials;
 	DELETE FROM Transmission;
 	DELETE FROM [Role];
-	DELETE FROM AspNetUsers WHERE id = '00000000-0000-0000-0000-000000000000';
+	DELETE FROM AspNetUsers WHERE id IN ('00000000-0000-0000-0000-000000000000', '11111111-1111-1111-1111-111111111111');
 
 END
 	
@@ -151,14 +151,14 @@ BEGIN
 	DBCC CHECKIDENT ('Car', RESEED, 1)
 	INSERT INTO Car(CarId, UserID, MakeId, ModelId, TypeId, BodyStyleId, TransmissionId, ColorId, InteriorId, [Year],
 	Milage, VIN, MSRP, SalePrice, [Description], UploadedPicture, IsFeatured)
-	VALUES (1, '00000000-0000-0000-0000-000000000000', 1, 1, 1, 1, 1, 2, 2, '2020', 'New', '1TD67UHY89IT5RE2D', 150.00, 135.00, 'Brand New Car', 'Image file path', 1),
-	(2, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'Image file path', 1),
-	(3, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'Image file path', 1),
-	(4, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'Image file path', 1),
-	(5, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'Image file path', 1),
-	(6, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'Image file path', 1),
-	(7, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'Image file path', 1),
-	(8, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'Image file path', 1)
+	VALUES (1, '00000000-0000-0000-0000-000000000000', 1, 1, 1, 1, 1, 2, 2, '2020', 'New', '1TD67UHY89IT5RE2D', 150.00, 135.00, 'Brand New Car', 'placeholder.png', 1),
+	(2, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'placeholder.png', 1),
+	(3, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'placeholder.png', 1),
+	(4, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'placeholder.png', 0),
+	(5, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'placeholder.png', 0),
+	(6, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'placeholder.png', 1),
+	(7, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'placeholder.png', 0),
+	(8, 'dp', 1, 1, 1, 1, 2, 2, 2, '2020', '15,000', '1TD67UHY89IT5RE2D', 150.00, 125.00, 'Brand New Car', 'placeholder.png', 0)
 
 	SET IDENTITY_INSERT Car OFF;
 
@@ -176,9 +176,9 @@ BEGIN
 
 	-- Role --
 	SET IDENTITY_INSERT [Role] ON;
-	INSERT INTO [Role](RoleId, RoleTitle)
-	VALUES(1, 'ADMIN'),
-	(2, 'USER');
+	INSERT INTO [Role](UserId, RoleId, RoleTitle)
+	VALUES('00000000-0000-0000-0000-000000000000', 1, 'ADMIN'),
+	('11111111-1111-1111-1111-111111111111', 2, 'USER');
 
 	SET IDENTITY_INSERT [Role] OFF;
 
@@ -186,5 +186,9 @@ BEGIN
 	INSERT INTO AspNetUsers(Id, RoleId, EmailConfirmed, PhoneNumberConfirmed, Email, TwoFactorEnabled, LockoutEnabled,
 	AccessFailedCount, UserName)
 	VALUES('00000000-0000-0000-0000-000000000000', 1, 0, 0, 'test@test.com', 0, 0, 0, 'TestUser');
+
+	INSERT INTO AspNetUsers(Id, RoleId, EmailConfirmed, PhoneNumberConfirmed, Email, TwoFactorEnabled, LockoutEnabled,
+	AccessFailedCount, UserName)
+	VALUES('11111111-1111-1111-1111-111111111111', 2, 0, 0, 'test2@test.com', 0, 0, 0, 'TestUser2');
 
 END

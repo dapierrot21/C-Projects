@@ -1,0 +1,129 @@
+﻿@model  List<CarDealership.Models.Queries.InvertoryReportLookUp>
+
+@{
+    ViewBag.Title = "Inventory";
+}
+
+<h2>Inventory</h2>
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Search</h2>
+    </div>
+</div>
+
+<style>
+    .column {
+        float: left;
+    }
+
+    .one {
+        width: 25.00%;
+    }
+
+    .two {
+        width: 25.00%;
+    }
+
+    .three {
+        width: 25.00%;
+    }
+
+    .four {
+        width: 25.00%
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Search</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <form id="searchForm" class="form-inline">
+            <div class="form-group">
+                <label for="make">Make</label>
+                <input type="text" class="form-control" id="make">
+            </div>
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input type="text" class="form-control" id="model">
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" id="year">
+            </div>
+            <button id="btnSearch" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div id="searchResults" class="col-xs-12">
+
+    </div>
+</div>
+
+<script>$(document).ready(function () {
+        $("#searchForm").submit(function (e) {
+            search();
+            return false;
+        });
+    });
+
+    function search() {
+        var params;
+
+        params = 'make=' + $('#make').val() + '&model=' + $('#model').val() + '&year=' +
+            $('#year').val();
+        console.log(params)
+
+        $.ajax({
+            type: 'GET',
+            url: '/api/cars/search?' + params,
+            success: function (results) {
+                console.log("success");
+                $('#searchResults').empty();
+
+                $.each(results, function (index, car) {
+                    var html = '<div class="row" style="border: 2px solid #0094ff;">' +
+                    '<div class="column one">' +
+                    `<h7 class="card-title text-primary"> ${car.Year} ${car.MakeType} ${car.ModelType}</h7><br />` +
+                    `<img src="/Images/${car.UploadedPicture}" style="height:50px; width:50px;" />` +
+                    '</div>' +
+                    '<div class="column two">' +
+                    '<h7 class="card-title text-primary">Style: ' + car.Style + '</h7><br />' +
+                    '<h7 class="card-title text-primary">Transmission: ' + car.TransmissionType + '</h7><br />' +
+                    '<h7 class="card-title text-primary">Exterior Color' + car.ColorName + '</h7>' +
+                    '</div>' +
+                    '<div class="column three">' +
+                    '<h7 class="column card-title text-primary">Interior Color: ' + car.InteriorColor + '</h7><br />' +
+                    '<h7 class="card-title text-primary">Mileage: ' + car.Mileage + '</h7><br />' +
+                    '<h7 class="card-title text-primary">VIN: ' + car.VIN + '</h7>' +
+                    '</div>' +
+                    '<div class="column four">' +
+                    '<h7 class="column card-title text-primary"> Sale Price: ' + car.SalePrice + '</h7><br />' +
+                    '<h7 class="card-title text-primary">MSRP: ' + car.MSRP + '</h7>' +
+                    '</div>' +
+                    '</div>'
+
+
+                    $('#searchResults').append(html.toString());
+                });
+
+            },
+            error: function () {
+                alert('Error performing search, try again later!')
+            },
+            done: function () {
+                alert('Search AJAX complete')
+            }
+        });
+
+    }</script>
+

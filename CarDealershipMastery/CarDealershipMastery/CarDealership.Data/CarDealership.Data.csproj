@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADO\AccountRepsitoryADO.cs" />
     <Compile Include="ADO\BodyStyleRepositoryADO.cs" />
     <Compile Include="ADO\CarNewOrUsedTypeRepositoryADO.cs" />
     <Compile Include="ADO\CarRepositoryADO.cs" />
@@ -59,6 +60,9 @@
     <Compile Include="ADO\SpecialsRepositoryADO.cs" />
     <Compile Include="ADO\StateRepositoryADO.cs" />
     <Compile Include="ADO\TransmissionRepositoryADO.cs" />
+    <Compile Include="Factories\CarRepositoryFactory.cs" />
+    <Compile Include="Factories\ContactRepositoryFactory.cs" />
+    <Compile Include="Interfaces\IAccountRepository.cs" />
     <Compile Include="Interfaces\IBodyStyleRepository.cs" />
     <Compile Include="Interfaces\ICarNewOrUsedTypeRepository.cs" />
     <Compile Include="Interfaces\ICarRepository.cs" />

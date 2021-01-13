@@ -51,9 +51,11 @@ namespace CarDealership.Data.ADO
                 {
                     if (dr.Read())
                     {
-                        make = new Make();
-                        make.MakeId = (int)dr["MakeId"];
-                        make.MakeType = dr["MakeType"].ToString();
+                        make = new Make
+                        {
+                            MakeId = (int)dr["MakeId"],
+                            MakeType = dr["MakeType"].ToString()
+                        };
                     }
                 }
             }

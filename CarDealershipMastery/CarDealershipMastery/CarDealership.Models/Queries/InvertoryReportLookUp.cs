@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarDealership.Models.Tables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace CarDealership.Models.Queries
 {
     public class InvertoryReportLookUp
     {
+        public Car Car { get; set; }
+        public List<Car> Cars { get; set; }
         public string UserId { get; set; }
         public string Year { get; set; }
         public int MakeId { get; set; }

@@ -16,5 +16,6 @@ namespace CarDealership.Data.Interfaces
         void Delete(int CarId);
         IEnumerable<CarItem> GetRecent();
         CarDetails GetDetails(int carId);
+        IEnumerable<Car> GetAllCars();
     }
 }

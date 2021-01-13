@@ -26,6 +26,10 @@ IF EXISTS(SELECT * FROM sys.tables WHERE name='State')
 DROP TABLE [State]
 GO
 
+IF EXISTS(SELECT * FROM sys.tables WHERE name='CarDetails')
+DROP TABLE CarDetails
+GO
+
 IF EXISTS(SELECT * FROM sys.table_types WHERE name='Interior')
 DROP TABLE Interior
 GO
@@ -148,6 +152,24 @@ CREATE TABLE Car(
 )
 GO
 
+CREATE TABLE CarDetails (
+	CarId int NOT NULL FOREIGN KEY REFERENCES Car(CarId),
+	[Year] varchar(4) NOT NULL,
+	MakeType varchar(10) NOT NULL,
+	ModelType varchar(50) NOT NULL,
+	Style nvarchar(10) NOT NULL,
+	TransmissionType nvarchar(10) NOT NULL,
+	ColorName nvarchar(10) NOT NULL,
+	InteriorColor varchar(10) NOT NULL,
+	Milage varchar(30) NOT NULL,
+	VIN varchar(17) NOT NULL,
+	SalePrice decimal(18,0) NOT NULL,
+	MSRP decimal(18,0) NOT NULL,
+	[Description] varchar(180) NOT NULL,
+	UploadedPicture varchar(50) NOT NULL
+)
+GO
+
 
 CREATE TABLE [State](
 	StateId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -197,6 +219,7 @@ GO
 
 CREATE TABLE [Role](
 	RoleId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	UserId nvarchar(128) NOT NULL,
 	RoleTitle varchar(30) NOT NULL
 )
 GO

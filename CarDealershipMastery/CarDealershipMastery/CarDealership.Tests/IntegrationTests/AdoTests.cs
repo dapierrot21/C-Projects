@@ -245,8 +245,8 @@ namespace CarDealership.Tests.IntegrationTests
             Assert.AreEqual(150M, car.MSRP);
             Assert.AreEqual(135M, car.SalePrice);
             Assert.AreEqual("Brand New Car", car.Description);
-            Assert.AreEqual("Image file path", car.UploadedPicture);
-            Assert.AreEqual(true, car.IsFeatured);
+            Assert.AreEqual("placeholder.png", car.UploadedPicture);
+            Assert.AreEqual(false, car.IsFeatured);
 
         }
 
@@ -270,8 +270,8 @@ namespace CarDealership.Tests.IntegrationTests
             carToAdd.MSRP = 10M;
             carToAdd.SalePrice = 5M;
             carToAdd.Description = "Older Car but drives new!!!";
-            carToAdd.UploadedPicture = "Image File Path";
-            carToAdd.IsFeatured = true;
+            carToAdd.UploadedPicture = "placeholder.png";
+            carToAdd.IsFeatured = false;
 
 
             repo.Insert(carToAdd);
@@ -300,7 +300,7 @@ namespace CarDealership.Tests.IntegrationTests
             carToAdd.MSRP = 10M;
             carToAdd.SalePrice = 5M;
             carToAdd.Description = "Older Car but drives new!!!";
-            carToAdd.UploadedPicture = "Image File Path";
+            carToAdd.UploadedPicture = "placeholder.png";
             carToAdd.IsFeatured = true;
 
 
@@ -340,7 +340,7 @@ namespace CarDealership.Tests.IntegrationTests
             carToAdd.MSRP = 10M;
             carToAdd.SalePrice = 5M;
             carToAdd.Description = "Older Car but drives new!!!";
-            carToAdd.UploadedPicture = "Image File Path";
+            carToAdd.UploadedPicture = "placeholder.png";
             carToAdd.IsFeatured = true;
 
 
@@ -680,7 +680,7 @@ namespace CarDealership.Tests.IntegrationTests
             Assert.AreEqual(1, car[0].MakeId);
             Assert.AreEqual(1, car[0].ModelId);
             Assert.AreEqual(125M, car[0].SalePrice);
-            Assert.AreEqual("Image file path", car[0].UploadedPicture);
+            Assert.AreEqual("placeholder.png", car[0].UploadedPicture);
 
         }
 
@@ -706,7 +706,7 @@ namespace CarDealership.Tests.IntegrationTests
             Assert.AreEqual(150M, car.MSRP);
             Assert.AreEqual(135M, car.SalePrice);
             Assert.AreEqual("Brand New Car", car.Description);
-            Assert.AreEqual("Image file path", car.UploadedPicture);
+            Assert.AreEqual("placeholder.png", car.UploadedPicture);
 
         }
 
@@ -722,6 +722,7 @@ namespace CarDealership.Tests.IntegrationTests
             Assert.AreEqual("Spring Break Deals", sp[0].Title);
             Assert.AreEqual("25% off any car for students", sp[0].Description);
         }
+
     }
 }
 
