@@ -1,0 +1,51 @@
+﻿@model CarDealership.Models.Tables.Contact
+@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6">
+        <h2>@ViewBag.Title</h2>
+        <h5>Ask about Vehicle with VIN: @ViewBag.Message</h5>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { enctype = "multipart/form-data"}))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ContactId)
+            <label>FullName</label>
+            <div class="form-group col-25">
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <label>Email</label>
+            <div class="form-group col-25">
+                @Html.TextBoxFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <label>Phone</label>
+            <div class="form-group col-25">
+                @Html.TextBoxFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+
+            <label>Message</label>
+            <div class="form-group col-25">
+                @Html.TextAreaFor(model => model.Message)
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+            <button id="btnContact" class="btn btn-primary">Send</button>
+        }
+    </div>
+</div>
+
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>

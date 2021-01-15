@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CarDealership.Models.Queries.CarItem>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>BIG HUGE SALES!!!</h1>
+        <p class="lead">supporting test and disclaimers.</p>
+    </div>
+
+    <h2 style="margin-bottom: 2em">Featured Vehicles</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">     
+        @foreach (var car in Model)
+        {
+            <div class="col" style="text-align: center">
+                <img src="@Url.Content("~/Images/" + car.UploadedPicture)" />
+                <p><strong>@car.Year @car.MakeType @car.ModelType</strong></p>
+                <p><strong>@car.SalePrice</strong></p>
+                <p>@Html.ActionLink("view details", "Details", "Inventory", new { id = car.CarId }, null)</p>
+            </div>
+        }
+    </div>
+</div>

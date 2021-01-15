@@ -1,0 +1,78 @@
+﻿@model CarDealership.Models.Queries.CarDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Vehicle Details</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <p><strong>@Model.Year @Model.MakeType @Model.ModelType</strong></p>
+        <img src="@Url.Content("~/Images/" + Model.UploadedPicture)" />
+    </div>
+    <div>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><strong>Body Style: </strong></td>
+                    <td>@Model.Style</td>
+                </tr>
+                <tr>
+                    <td><strong>Trans: </strong></td>
+                    <td>@Model.TransmissionType</td>
+                </tr>
+                <tr>
+                    <td><strong>Color: </strong></td>
+                    <td>@Model.ColorName</td>
+                </tr>
+                <tr>
+                    <td><strong>Interior: </strong></td>
+                    <td>@Model.InteriorColor</td>
+                </tr>
+                <tr>
+                    <td><strong>Mileage: </strong></td>
+                    <td>@Model.Milage</td>
+                </tr>
+                <tr>
+                    <td><strong>VIN #: </strong></td>
+                    <td>@Model.VIN</td>
+                </tr>
+                <tr>
+                    <td><strong>Sale Price: </strong></td>
+                    <td>@Model.SalePrice</td>
+                </tr>
+                <tr>
+                    <td><strong>MSRP: </strong></td>
+                    <td>@Model.MSRP</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <p>Descripton: </p>
+        <p>@Model.Description</p>
+    </div>
+</div>
+<div class="row">    
+    <div class="col-xs-12">
+        @if (@Model.IsFeatured == true)
+        {
+            <br />
+            <strong>Unavailable - Sold</strong>
+        }
+        else
+        {
+            <br />
+            @Html.ActionLink("Contact Us", "Contact", "Home", new { vin = @Model.VIN }, new { @class = "btn btn-primary" })
+
+        }
+    </div>
+</div>
+
